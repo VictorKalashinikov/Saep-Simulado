@@ -1,0 +1,71 @@
+1.
+
+CREATE TABLE public.usuarios (
+    id UUID PRIMARY KEY
+        REFERENCES auth.users(id)
+        ON DELETE CASCADE,
+
+    nome VARCHAR(100) NOT NULL,
+
+    email VARCHAR(150) NOT NULL UNIQUE,
+
+    data_cadastro TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE public.usuarios
+ENABLE ROW LEVEL SECURITY;
+
+RUN
+
+2. 
+
+
+CREATE POLICY "Usuario pode visualizar seu proprio perfil"
+ON public.usuarios
+FOR SELECT
+TO authenticated
+USING (
+    auth.uid() = id
+);
+
+CREATE POLICY "Usuario pode atualizar seu proprio perfil"
+ON public.usuarios
+FOR UPDATE
+TO authenticated
+USING (
+    auth.uid() = id
+)
+WITH CHECK (
+    auth.uid() = id
+);
+
+3. 
+CREATE OR REPLACE FUNCTION public.criar_perfil_usuario()
+RETURNS TRIGGER
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = ''
+AS $$
+BEGIN
+
+    INSERT INTO public.usuarios (
+        id,
+        nome,
+        email
+    )
+    VALUES (
+        NEW.id,
+        NEW.raw_user_meta_data ->> 'nome',
+        NEW.email
+    );
+
+    RETURN NEW;
+
+END;
+$$;
+
+CREATE TRIGGER apos_cadastro_usuario
+AFTER INSERT ON auth.users
+FOR EACH ROW
+EXECUTE PROCEDURE public.criar_perfil_usuario();
+
