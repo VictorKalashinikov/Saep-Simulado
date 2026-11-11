@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Abrir Chamado - TechMaq</title>
+    <link rel="stylesheet" href="assets/estilo.css">
+</head>
+<body>
+    <h1>Abrir Chamado de Manutenção</h1>
+
+    <form id="formAbrirChamado">
+        <label for="selectEquipamento">Equipamento</label>
+        <select id="selectEquipamento" required>
+            <option value="">-- Selecione o Equipamento --</option>
+        </select>
+
+        <label for="descricao">Descrição do Problema</label>
+        <textarea id="descricao" rows="4" required></textarea>
+
+        <label for="prioridade">Prioridade</label>
+        <select id="prioridade" required>
+            <option value="Baixa">Baixa</option>
+            <option value="Média">Média</option>
+            <option value="Alta">Alta</option>
+        </select>
+
+        <button type="submit">Registrar Chamado</button>
+    </form>
+
+    <br>
+    <a href="painel.html">Voltar ao Painel</a>
+
+    <script src="script.js"></script>
+</body>
+</html>

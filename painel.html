@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel de Chamados - TechMaq</title>
+    <link rel="stylesheet" href="assets/estilo.css">
+</head>
+<body>
+    <h1>Painel de Chamados</h1>
+    <p>Usuário autenticado: <strong id="nomeUsuarioLogado">...</strong> | <button id="btnSair" style="width: auto;">Sair</button></p>
+
+    <p><a href="abrir_chamado.html"><button style="width: auto;">+ Abrir Novo Chamado</button></a></p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nº Chamado</th>
+                <th>Equipamento</th>
+                <th>Descrição</th>
+                <th>Prioridade</th>
+                <th>Status</th>
+                <th>Aberto por</th>
+            </tr>
+        </thead>
+        <tbody id="tabelaChamados">
+            <!-- Linhas inseridas dinamicamente via JS -->
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
