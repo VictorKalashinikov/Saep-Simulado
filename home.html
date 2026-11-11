@@ -2,43 +2,20 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Login</title>
+    <title>Home - TechMaq</title>
 </head>
 <body>
-    <header>
-        <h1>TechMaq</h1>
-    </header>
-    <main>
-        
-    </main>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script src="js/supabase-config.js"></script>
-
-<script src="js/script.js"></script>
-
-    <script src="script.js"></script>
+    <h1>Página Inicial</h1>
     
+    <!-- Elemento para exibir o nome ou e-mail do usuário logado -->
+    <p id="infoUsuario">Carregando...</p>
 
-    <script>
+    <!-- Botão de logout -->
+    <button id="btnSair">Sair</button>
 
-async function verificarAutenticacao() {
-
-const { data, error } = await supabaseClient.auth.getUser();
-
-if (error || !data.user) {
-    window.location.href = "index.html";
-    return;
-}
-
-console.log("Usuário autenticado:", data.user.email);
-}
-
-verificarAutenticacao();
-
-    </script>
+    <!-- Scripts em ordem de dependência -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
