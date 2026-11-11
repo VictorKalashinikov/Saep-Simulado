@@ -6,7 +6,7 @@
 //const SUPABASE_URL = "https://seu-projeto.supabase.co";
 //const SUPABASE_KEY = "sb_publishable_sua-chave";
 
-const SUPABASE_URL = "https://seu-projeto.supabase.co";
+const SUPABASE_URL = "https://pkjxtjlhybcnqvtysppn.supabase.co";
 
 const SUPABASE_KEY = "sb_publishable_I1E9aANwEhrYCI68WxH8aQ_9qEnyk3Chttps://pkjxtjlhybcnqvtysppn.supabase.co";
 
